@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For My Cutie ❤️</title>
+<style>
+body{margin:0;background:linear-gradient(135deg,#ffb6d5,#ffe8f2);font-family:Arial,sans-serif;overflow:hidden;display:flex;justify-content:center;align-items:center;height:100vh}
+#open{padding:18px 34px;font-size:24px;border:none;border-radius:16px;background:#ff4f8b;color:#fff;cursor:pointer}
+#letter{display:none;background:#fff;padding:30px;border-radius:18px;max-width:650px;text-align:center;box-shadow:0 15px 35px rgba(0,0,0,.2)}
+h1{color:#e91e63}
+#msg{font-size:20px;line-height:1.6}
+.heart,.conf{position:fixed;top:-20px;pointer-events:none}
+.heart{font-size:24px;animation:fall 6s linear infinite}
+.conf{width:8px;height:8px;background:currentColor;animation:fall 4s linear infinite}
+@keyframes fall{to{transform:translateY(110vh) rotate(720deg)}}
+</style>
+</head>
+<body>
+<button id="open" onclick="start()">💖 Open My Heart 💖</button>
+
+<div id="letter">
+<h1>Sorry, Sidra Khurshid... ❤️</h1>
+<p id="msg"></p>
+<h2>💋 A Kiss, A Hug, & All My Love 💞</h2>
+<p>Please forgive me. Seeing you smile means everything to me. 🌹</p>
+
+<hr>
+<h2 style="color:#d81b60;">💍 Sidra Khurshid, Will You Marry Me? 💍</h2>
+<p>You don't have to answer right now... I just wanted you to know how special you are to me. ❤️</p>
+<div>
+<button onclick="answer('Yes! ❤️')">Yes ❤️</button>
+<button onclick="answer('Let me think 😊')">Let me think 😊</button>
+</div>
+<p id="reply" style="font-weight:bold;color:#e91e63;"></p>
+<script>
+function answer(text){
+ document.getElementById('reply').innerText="Your answer: "+text+"\nNo matter what, thank you for opening my heart. ❤️";
+}
+</script>
+
+</div>
+
+<script>
+const text="Sidra Khurshid, you are very precious to me. You are my heart, my soul, and one of the best parts of my life. If I hurt you, I am truly sorry. I promise to keep choosing you with kindness, respect, and love every day. ❤️";
+let i=0;
+function type(){
+ if(i<text.length){msg.innerHTML+=text.charAt(i++);setTimeout(type,35);}
+}
+function rain(){
+ for(let j=0;j<80;j++){
+   let h=document.createElement('div');
+   h.className='heart';
+   h.innerHTML=['💖','💕','❤️','🌸','✨'][j%5];
+   h.style.left=Math.random()*100+'vw';
+   h.style.animationDelay=(Math.random()*3)+'s';
+   document.body.appendChild(h);
+ }
+ for(let j=0;j<120;j++){
+   let c=document.createElement('div');
+   c.className='conf';
+   c.style.left=Math.random()*100+'vw';
+   c.style.color=['#ff4081','#ffd54f','#7c4dff','#42a5f5','#66bb6a'][j%5];
+   c.style.animationDelay=(Math.random()*2)+'s';
+   document.body.appendChild(c);
+ }
+}
+function start(){
+ open.style.display='none';
+ letter.style.display='block';
+ rain();
+ type();
+}
+</script>
+</body>
+</html>
